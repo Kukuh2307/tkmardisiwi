@@ -15,9 +15,38 @@ if (isset($_GET['msg'])) {
 
 // menampilkan alert
 $alert = '';
-if ($msg = 'cancel') {
+// alert username sudah terdaftar
+if ($msg == 'cancel') {
     $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
     <i class="fa-solid fa-circle-exclamation"></i> Username sudah terdaftar
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// alert format gambar tidak sesuai
+if ($msg == 'falseformat') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Format file tidak sesuai
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// alert file gambar kosong
+if ($msg == 'notimage') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Upload gambar terlebih dahulu
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// apabila berhasil menambahkan user
+if ($msg == 'sucess') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Berhasil menambahkan user baru,segera ganti password anda...
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// apabila file gambar terlalu besar
+if ($msg == 'oversize') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Ukuran gambar terlalu besar max 3 MB
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
@@ -52,7 +81,7 @@ if ($msg = 'cancel') {
                                     <label for="Username" class="col-sm-2 col-form-label">Username</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-9">
-                                        <input type="email" pattern="[A-Za-z0-9]{2,}" title="Minimal 2 karakter kombinasi huruf besar,huruf kecil dan" class="form-control border-0 border-bottom" id="Username" name="Username" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email yang sudah terdaftar" required>
+                                        <input type="email"  class="form-control border-0 border-bottom" id="Username" name="Username" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email yang sudah terdaftar" required>
                                     </div>
                                 </div>
 
@@ -61,7 +90,7 @@ if ($msg = 'cancel') {
                                     <label for="Nama" class="col-sm-2 col-form-label">Nama</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control border-0 border-bottom" id="Nama" name="Nama" maxlength="20" style="margin-left: -2.5rem;" placeholder="Masukkan nama lengkap anda" required>
+                                        <input type="text" class="form-control border-0 border-bottom" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan nama lengkap anda" required>
                                     </div>
                                 </div>
 
