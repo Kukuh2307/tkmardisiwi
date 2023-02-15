@@ -20,6 +20,13 @@ if(isset($_POST['simpan'])){
         header("location:add-user.php?msg=cancel");
         return;
     }
+    
+    $cekEmailGuru =mysqli_query($koneksi,"SELECT * FROM guru WHERE email = '$username'");
+
+    if(mysqli_num_rows($cekEmailGuru) < 1){
+        header("location:add-user.php?msg=notteacher");
+        return;
+    }
 
     // upload gambar
     // apabila user mengupload gambar
@@ -28,7 +35,7 @@ if(isset($_POST['simpan'])){
         $picture = uploadimg($url);
         // apabila tidak ada gambar
     } else{
-        $picture = "../asset/image/profile.png";
+        $picture = "profile.png";
     }
     $insertData = mysqli_query($koneksi,"INSERT INTO admin(username,nama,jabatan,alamat,pswd,picture) VALUES('$username','$nama','$jabatan','$alamat','$pass','$picture')");
 

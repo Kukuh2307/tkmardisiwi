@@ -50,6 +50,13 @@ if ($msg == 'oversize') {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
+// alert admin bukan guru
+if ($msg == 'notteacher') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Username anda tidak terdaftar sebagai guru!!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
 
 ?>
 <div id="layoutSidenav_content">
