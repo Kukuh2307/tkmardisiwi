@@ -36,12 +36,17 @@ function uploadimg($url)
         die;
     }
 
-    // generate nama file gambar
-    $namaFileBaru = rand(10, 1000) . '-' . $namafile;
-
-    // upload gambar
+    // apabila url dari profile sekolah
+    if($url = 'profile-sekolah.php'){
+        $namaFileBaru = rand(0,50). 'bgLogin'.'.'.$fileFormat;
+        // upload gambar
+    move_uploaded_file($tmp, "../asset/image/Profile-Sekolah/" . $namaFileBaru);
+    return $namaFileBaru;
+    } else {
+        // generate nama file gambar
+        $namaFileBaru = rand(10, 1000) . '-' . $namafile;
+        // upload gambar
     move_uploaded_file($tmp, "../asset/image/User-image/" . $namaFileBaru);
     return $namaFileBaru;
+    }
 }
-
-?>
