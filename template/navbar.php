@@ -16,7 +16,7 @@
                         <li><a class="dropdown-item" href="#!">Profile User</a></li>
                         <li><a class="dropdown-item" href="<?=$main_url?>/Sekolah/profile-sekolah.php">Profile Sekolah</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="../auth/login.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
