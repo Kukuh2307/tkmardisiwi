@@ -11,10 +11,11 @@ if(isset($_POST['login'])){
     // cek username
     $cekuser = mysqli_query($koneksi, "SELECT * FROM admin WHERE username = '$username'");
     if(mysqli_num_rows($cekuser) == 1){
-        $row = mysqli_fetch_assoc($cekuser);
+        $row = mysqli_fetch_array($cekuser);
         if(password_verify($password, $row['pswd'])){
+            $name = $row['nama'];
             $_SESSION['Login'] = true;
-            $_SESSION['Username'] = $username;
+            $_SESSION['Username'] = $name;
             header("location:../index.php");
             exit;
         } else{

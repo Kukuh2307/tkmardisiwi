@@ -1,5 +1,10 @@
 <?php
 session_start();
+// cek session
+if(isset($_SESSION['Login'])){
+    header("location:../index.php");
+    exit;
+}
 require_once"../config.php";
 
 $sekolah = mysqli_query($koneksi, "SELECT * FROM sekolah WHERE id=1");
@@ -21,6 +26,13 @@ if($msg == 'falsepassword'){
 if($msg == 'usernotfound'){
     $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
     <i class="fa-solid fa-circle-exclamation"></i>Username tidak di temukan.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// bagian directory tranfesal
+if($msg == 'directorytranfesal'){
+    $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i>Ampun bang HACKER!!
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
