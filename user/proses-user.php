@@ -1,7 +1,7 @@
 <?php
 require_once"../config.php";
 
-// jika tombol simpan di tekan
+// jika tombol simpan pada add-user di tekan
 if(isset($_POST['simpan'])){
     // ambil value element yng di posting
     $username = trim(htmlspecialchars($_POST['Username']));

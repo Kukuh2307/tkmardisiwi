@@ -1,6 +1,6 @@
 <?php
+session_start();
 require_once("../config.php");
-
 
 
 // ketika tombol login di tekan
@@ -13,6 +13,8 @@ if(isset($_POST['login'])){
     if(mysqli_num_rows($cekuser) == 1){
         $row = mysqli_fetch_assoc($cekuser);
         if(password_verify($password, $row['pswd'])){
+            $_SESSION['Login'] = true;
+            $_SESSION['Username'] = $username;
             header("location:../index.php");
             exit;
         } else{

@@ -1,5 +1,6 @@
 <?php
-require_once "../config.php";
+session_start();
+require_once"../config.php";
 
 $sekolah = mysqli_query($koneksi, "SELECT * FROM sekolah WHERE id=1");
 $data = mysqli_fetch_array($sekolah);

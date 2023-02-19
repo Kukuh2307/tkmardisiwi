@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+// cek session
+if(!isset($_SESSION['Login'])){
+    header("location:auth/login.php?msg=directorytranfesal");
+    exit;
+}
 require_once"config.php";
 $tittle = "Dashboard - TK MARDISIWI";
 require_once"template/header.php";
@@ -554,4 +561,3 @@ require_once"template/sidebar.php";
                 <?php 
                 require_once"template/footer.php";
                 ?>
-
