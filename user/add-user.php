@@ -135,7 +135,7 @@ if ($msg == 'notteacher') {
                                 </div>
                             </div>
                             <div class="col-4 text-center px-5">
-                                <img src="../asset//image//profile.png" alt="Profile" class="mb-2" width="40%">
+                                <img src="../asset/image//profile.png" alt="Profile" class="mb-2" width="40%">
                                 <input type="file" name="image" class="form-control form-control-sm">
                                 <small class="text-secondary">Pilih Foto dengan type PNG,JPG atau JPEG max 1 MB (98x98)</small>
                             </div>

@@ -22,7 +22,7 @@
                             <hr class="mb-0">
                             
                             <div class="sb-sidenav-menu-heading">Data</div>
-                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>/siswa/siswa.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                                 Siswa
                             </a>
