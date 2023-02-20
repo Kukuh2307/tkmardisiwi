@@ -15,7 +15,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                                 User
                             </a>
-                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>/user/Change-Password.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-key"></i></div>
                                 Ganti Password
                             </a>
