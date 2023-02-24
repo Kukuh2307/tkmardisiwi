@@ -36,6 +36,7 @@ require_once("../template/sidebar.php");
                                 <th scope="col"><center>Nama</center></th>
                                 <th scope="col"><center>Kelas</center></th>
                                 <th scope="col"><center>Tahun Masuk</center></th>
+                                <th scope="col"><center>Semester</center></th>
                                 <th scope="col"><center>Guru</center></th>
                                 <th scope="col"><center>Alamat</center></th>
                                 <th scope="col"><center>Opsi</center></th>
@@ -46,6 +47,7 @@ require_once("../template/sidebar.php");
                                 <th scope="row">1</th>
                                 <td align="center">>Mark</td>
                                 <td align="center">>Otto</td>
+                                <td align="center">>@mdo</td>
                                 <td align="center">>@mdo</td>
                                 <td align="center">>Mark</td>
                                 <td align="center">>Mark</td>

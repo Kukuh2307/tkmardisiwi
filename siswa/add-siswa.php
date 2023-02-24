@@ -67,6 +67,18 @@ require_once("../template/sidebar.php");
                                         <input type="number" class="form-control border-0 border-bottom" id="Tahun" name="Tahun" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Tahun Masuk Siswa" required>
                                     </div>
                                 </div>
+                                <!-- Kelas -->
+                                <div class="mb-3 row">
+                                    <label for="Semester" class="col-sm-2 col-form-label">Semester</label>
+                                    <label for="" class="col-sm-1 col-form-label">:</label>
+                                    <div class="col-sm-9" style="margin-left:-2.5rem;">
+                                    <select name="Semester" id="Semester" class="form-select border-0 border-bottom text-secondary" required>
+                                            <option value="" selected>--Pilih Semester--</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <!-- Guru -->
                                 <div class="mb-3 row">
                                     <label for="Guru" class="col-sm-2 col-form-label">Guru</label>
