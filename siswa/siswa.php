@@ -68,7 +68,7 @@ if ($msg == 'oversize') {
                     <a href="<?= $main_url ?>/siswa/add-siswa.php" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Siswa</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
@@ -84,21 +84,30 @@ if ($msg == 'oversize') {
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            $no = 1;
+                            $querySiswa = mysqli_query($koneksi, "SELECT * FROM siswa");
+                            while($data = mysqli_fetch_array($querySiswa)){
+                                ?>
+
                             <tr>
-                                <th scope="row">1</th>
-                                <td align="center">>Mark</td>
-                                <td align="center">>Otto</td>
-                                <td align="center">>@mdo</td>
-                                <td align="center">>@mdo</td>
-                                <td align="center">>Mark</td>
-                                <td align="center">>Mark</td>
-                                <td align="center">>Otto</td>
-                                <td align="center">>@mdo</td>
+                                <th scope="row"><?=$no++?></th>
+                                <td align="center"><img src="../asset//image/Siswa/<?=$data['foto']?>" alt="siswa" class="rounded-circle" width="60px" height="60px"></td>
+                                <td align="center"><?=$data['nis']?></td>
+                                <td align="center"><?=$data['nama']?></td>
+                                <td align="center"><?=$data['kelas']?></td>
+                                <td align="center"><?=$data['tahun_masuk']?></td>
+                                <td align="center"><?=$data['semester']?></td>
+                                <td align="center"><?=$data['guru']?></td>
+                                <td align="center"><?=$data['alamat']?></td>
                                 <td align="center">
-                                    <a href="#" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i>Edit</a>
-                                    <a href="#" class="btn btn-sm btn-danger"title="Hapus" ><i class="fa-solid fa-trash"></i>Hapus</a>
+                                    <a href="#" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="#" class="btn btn-sm btn-danger"title="Hapus" ><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
