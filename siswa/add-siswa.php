@@ -9,6 +9,23 @@ $tittle = "Tambah Siswa";
 require_once("../template/header.php");
 require_once("../template/navbar.php");
 require_once("../template/sidebar.php");
+
+// ambil nis terbesar pada tabel siswa untuk membuat nis otomatis
+$queryNis = mysqli_query($koneksi, "SELECT MAX(nis) as maxnis FROM siswa");
+$data = mysqli_fetch_array($queryNis);
+$maxNis = $data['maxnis'];
+// $nomorUrut = (int) substr($maxNis, 3, 3);
+// $nomorUrut++;
+// $maxNis = "NIS" . sprintf("%03s", $nomorUrut);
+
+// mengambil 3 karakter angka yang di mulai dari karakter ke 7
+$nomorUrut = (int) substr($maxNis, 7, 3);
+// melakukan penambahan otomatis
+$nomorUrut++; 
+// menggabungkan format NIS
+$maxNis = "TKMDSW-" . sprintf("%03s", $nomorUrut);
+
+
 ?>
 <div id="layoutSidenav_content">
     <main>
@@ -19,7 +36,8 @@ require_once("../template/sidebar.php");
                 <li class="breadcrumb-item"><a href="<?= $main_url ?>/siswa/siswa.php" class="link-secondary">Siswa</a></li>
                 <li class="breadcrumb-item active">Tambah Siswa</li>
             </ol>
-            <form action="proses-tambah-siswa.php" method="POST" enctype="multipart/form-data">
+            <form action="proses-add-siswa.php" method="POST" enctype="multipart/form-data">
+
                 <div class="card">
                     <div class="card-header">
                         <span class="h5"><i class="fa-solid fa-square-plus"></i> Tambah Siswa</span>
@@ -31,26 +49,26 @@ require_once("../template/sidebar.php");
                             <div class="col-8">
                                 <!-- NIS -->
                                 <div class="mb-3 row">
-                                    <label for="NIS" class="col-sm-2 col-form-label">NIS</label>
+                                    <label for="NIS" class="col-sm-3 col-form-label">NIS</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control border-0 border-bottom" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" required>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control border-0 border-bottom" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" value="<?= $maxNis ?>" readonly>
                                     </div>
                                 </div>
                                 <!-- Nama -->
                                 <div class="mb-3 row">
-                                    <label for="Nama" class="col-sm-2 col-form-label">Nama</label>
+                                    <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="text" class="form-control border-0 border-bottom" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Siswa" required>
                                     </div>
                                 </div>
                                 <!-- Kelas -->
                                 <div class="mb-3 row">
-                                    <label for="Kelas" class="col-sm-2 col-form-label">Kelas</label>
+                                    <label for="Kelas" class="col-sm-3 col-form-label">Kelas</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9" style="margin-left:-2.5rem;">
-                                    <select name="Kelas" id="Kelas" class="form-select border-0 border-bottom text-secondary" required>
+                                    <div class="col-sm-8" style="margin-left:-2.5rem;">
+                                        <select name="Kelas" id="Kelas" class="form-select border-0 border-bottom text-secondary" required>
                                             <option value="" selected>--Pilih Kelas--</option>
                                             <option value="A1">A1</option>
                                             <option value="A2">A2</option>
@@ -61,18 +79,18 @@ require_once("../template/sidebar.php");
                                 </div>
                                 <!-- Tahun -->
                                 <div class="mb-3 row">
-                                    <label for="Tahun" class="col-sm-2 col-form-label">Tahun Masuk</label>
+                                    <label for="Tahun" class="col-sm-3 col-form-label">Tahun Masuk</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="number" class="form-control border-0 border-bottom" id="Tahun" name="Tahun" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Tahun Masuk Siswa" required>
                                     </div>
                                 </div>
-                                <!-- Kelas -->
+                                <!-- Semester -->
                                 <div class="mb-3 row">
-                                    <label for="Semester" class="col-sm-2 col-form-label">Semester</label>
+                                    <label for="Semester" class="col-sm-3 col-form-label">Semester</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9" style="margin-left:-2.5rem;">
-                                    <select name="Semester" id="Semester" class="form-select border-0 border-bottom text-secondary" required>
+                                    <div class="col-sm-8" style="margin-left:-2.5rem;">
+                                        <select name="Semester" id="Semester" class="form-select border-0 border-bottom text-secondary" required>
                                             <option value="" selected>--Pilih Semester--</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -81,10 +99,10 @@ require_once("../template/sidebar.php");
                                 </div>
                                 <!-- Guru -->
                                 <div class="mb-3 row">
-                                    <label for="Guru" class="col-sm-2 col-form-label">Guru</label>
+                                    <label for="Guru" class="col-sm-3 col-form-label">Guru</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-9" style="margin-left:-2.5rem;">
-                                    <select name="Guru" id="Guru" class="form-select border-0 border-bottom text-secondary" required>
+                                    <div class="col-sm-8" style="margin-left:-2.5rem;">
+                                        <select name="Guru" id="Guru" class="form-select border-0 border-bottom text-secondary" required>
                                             <option value="" selected>--Pilih Guru--</option>
                                             <option value="Samsiyah_S.Pd">Samsiyah S.Pd</option>
                                             <option value="Sri-Endah_S.Pd">Sri Endah S.Pd</option>
@@ -96,7 +114,7 @@ require_once("../template/sidebar.php");
                                 </div>
                                 <!-- Alamat -->
                                 <div class="mb-3 row">
-                                    <label for="Alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                    <label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left: -3rem;">
                                         <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control" placeholder="Domisili saat ini" required></textarea>
@@ -110,7 +128,9 @@ require_once("../template/sidebar.php");
                             </div>
                         </div>
                     </div>
+                </div>
             </form>
+        </div>
     </main>
     <?php
     require_once("../template/footer.php");

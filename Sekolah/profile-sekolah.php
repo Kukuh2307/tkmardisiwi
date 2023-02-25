@@ -84,7 +84,7 @@ $data = mysqli_fetch_array($selectSekolah);
                                 <!-- ambil gambar lama dan id pada database di dashboard -->
                                 <input type="hidden" name="id" value="<?=$data['id']?>">
                                 <input type="hidden" name="gbrlama" value="<?=$data['gambar']?>">
-                                <img src="../asset//image/Profile-Sekolah/<?=$data['gambar']?>" alt="gambar sekolah" class="mb-3" width="100%">
+                                <img src="../asset/image/Profile-Sekolah/<?=$data['gambar']?>" alt="gambar sekolah" class="mb-3" width="100%">
                                 <input type="file" name="image" value="" class="form-control form-control-sm">
                                 <small class="text-secondary">Pilih gambar PNG,JPG atau JPEG dengan ukuran maksimal 3 MB</small>
                             </div>

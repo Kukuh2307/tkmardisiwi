@@ -11,6 +11,42 @@ require_once("../template/header.php");
 require_once("../template/navbar.php");
 require_once("../template/sidebar.php");
 
+// mengkap massage dari proses-tambah-siswa.php
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+} else {
+    $msg = '';
+}
+
+$alert = '';
+// alert format gambar tidak sesuai
+if ($msg == 'falseformat') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Format file tidak sesuai
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// alert file gambar kosong
+if ($msg == 'notimage') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Upload gambar terlebih dahulu
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// apabila berhasil menambahkan user
+if ($msg == 'sucess') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Berhasil menambahkan Siswa.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
+// apabila file gambar terlalu besar
+if ($msg == 'oversize') {
+    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-exclamation"></i> Ukuran gambar terlalu besar max 3 MB
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+
 ?>
 <div id="layoutSidenav_content">
     <main>
@@ -20,7 +56,12 @@ require_once("../template/sidebar.php");
                 <li class="breadcrumb-item"><a href="<?= $main_url ?>" class="link-secondary">Home</a></li>
                 <li class="breadcrumb-item active">Siswa</li>
             </ol>
-
+            <?php
+                // apabila ada massage
+                if ($msg != '') {
+                    echo $alert;
+                }
+                ?>
             <div class="card">
                 <div class="card-header">
                     <span class="h5"><i class="fa-solid fa-list"></i> Data Siswa</span>
@@ -65,6 +106,6 @@ require_once("../template/sidebar.php");
         </div>
     </main>
 
-    <?php
-    require_once("../template/footer.php");
-    ?>
+<?php
+require_once("../template/footer.php");
+?>

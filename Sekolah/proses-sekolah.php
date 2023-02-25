@@ -28,7 +28,7 @@ if(isset($_POST['simpan'])){
         $url = 'profile-sekolah.php';
         $gbrSekolah = uploadimg($url);
         // hapus gambar lama
-        @unlink('../asset/image/'.$gambar);
+        @unlink('../asset/image/Profile-Sekolah'.$gambar);
     }
 
     // update data

@@ -37,7 +37,7 @@ if(isset($_POST['simpan'])){
 
     // upload gambar
     // apabila user mengupload gambar
-    if($picture !== null){
+    if($picture != null){
         $url = "add-user.php";
         $picture = uploadimg($url);
         // apabila tidak ada gambar
@@ -47,5 +47,5 @@ if(isset($_POST['simpan'])){
     $insertData = mysqli_query($koneksi,"INSERT INTO admin(username,nama,jabatan,alamat,pswd,picture) VALUES('$username','$nama','$jabatan','$alamat','$pass','$picture')");
 
     header("location:add-user.php?msg=sucess");
-    return;
+    return;       
     }

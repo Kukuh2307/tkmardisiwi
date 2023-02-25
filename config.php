@@ -36,9 +36,16 @@ function uploadimg($url)
         die;
     }
 
+    
+    // apabila url dari add siswa
+    if($url == "add-siswa.php"){
+        $namaFileBaru = rand(0,50). '-Siswa'.'.'.$fileFormat;
+        // upload gambar
+    move_uploaded_file($tmp, "../asset/image/Siswa/" . $namaFileBaru);
+    return $namaFileBaru;
+    } elseif ($url == "profile-sekolah.php") {
     // apabila url dari profile sekolah
-    if($url = 'profile-sekolah.php'){
-        $namaFileBaru = rand(0,50). 'bgLogin'.'.'.$fileFormat;
+        $namaFileBaru = rand(0,50). '-bgLogin'.'.'.$fileFormat;
         // upload gambar
     move_uploaded_file($tmp, "../asset/image/Profile-Sekolah/" . $namaFileBaru);
     return $namaFileBaru;
