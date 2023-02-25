@@ -26,7 +26,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                                 Siswa
                             </a>
-                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>/Guru/guru.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
                                 Guru
                             </a>
