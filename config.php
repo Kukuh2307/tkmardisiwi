@@ -39,7 +39,7 @@ function uploadimg($url)
     
     // apabila url dari add siswa
     if($url == "add-siswa.php"){
-        $namaFileBaru = rand(0,50). '-Siswa'.'.'.$fileFormat;
+        $namaFileBaru = rand(0,5000). '-Siswa'.'.'.$fileFormat;
         // upload gambar
     move_uploaded_file($tmp, "../asset/image/Siswa/" . $namaFileBaru);
     return $namaFileBaru;
@@ -56,4 +56,19 @@ function uploadimg($url)
     move_uploaded_file($tmp, "../asset/image/User-image/" . $namaFileBaru);
     return $namaFileBaru;
     }
+}
+
+// fungsi generate nis
+function GenerateNIS($koneksi){
+    // ambil nis terbesar pada tabel siswa untuk membuat nis otomatis
+    $queryNis = mysqli_query($koneksi, "SELECT MAX(nis) as maxnis FROM siswa");
+    $data = mysqli_fetch_array($queryNis);
+    $maxNis = $data['maxnis'];
+    // mengambil 3 karakter angka yang di mulai dari karakter ke 7
+    $nomorUrut = (int) substr($maxNis, 7, 3);
+    // melakukan penambahan otomatis
+    $nomorUrut++; 
+    // menggabungkan format NIS
+    $maxNis = "TKMDSW-" . sprintf("%03s", $nomorUrut);
+    return $maxNis;
 }

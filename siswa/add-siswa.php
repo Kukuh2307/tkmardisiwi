@@ -10,20 +10,6 @@ require_once("../template/header.php");
 require_once("../template/navbar.php");
 require_once("../template/sidebar.php");
 
-// ambil nis terbesar pada tabel siswa untuk membuat nis otomatis
-$queryNis = mysqli_query($koneksi, "SELECT MAX(nis) as maxnis FROM siswa");
-$data = mysqli_fetch_array($queryNis);
-$maxNis = $data['maxnis'];
-// $nomorUrut = (int) substr($maxNis, 3, 3);
-// $nomorUrut++;
-// $maxNis = "NIS" . sprintf("%03s", $nomorUrut);
-
-// mengambil 3 karakter angka yang di mulai dari karakter ke 7
-$nomorUrut = (int) substr($maxNis, 7, 3);
-// melakukan penambahan otomatis
-$nomorUrut++; 
-// menggabungkan format NIS
-$maxNis = "TKMDSW-" . sprintf("%03s", $nomorUrut);
 
 
 ?>
@@ -52,7 +38,7 @@ $maxNis = "TKMDSW-" . sprintf("%03s", $nomorUrut);
                                     <label for="NIS" class="col-sm-3 col-form-label">NIS</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" value="<?= $maxNis ?>" readonly>
+                                        <input type="text" class="form-control border-0 border-bottom" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" value="<?= GenerateNIS($koneksi) ?>" readonly>
                                     </div>
                                 </div>
                                 <!-- Nama -->
