@@ -26,7 +26,7 @@ function uploadimg($url)
     }
 
     // apabila gambar kosong
-    if($namafile == ''){
+    if($namafile = ''){
         header("locatioin:".$url.'?msg=notimage');
     }
 
