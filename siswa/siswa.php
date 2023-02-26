@@ -39,12 +39,24 @@ if ($msg == 'sucess') {
     <i class="fa-solid fa-circle-check"></i> Berhasil menambahkan Siswa.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
+if ($msg == 'sucess-edit') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Berhasil mengupdate data Siswa.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
 
 // apabila file gambar terlalu besar
 if ($msg == 'oversize') {
     $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
     <i class="fa-solid fa-circle-exclamation"></i> Ukuran gambar terlalu besar max 3 MB
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+
+    // apabila berhasil menghapus data siswa
+    if ($msg == 'sucess-delete') {
+        $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i> Data siswa berhasil di hapus!!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
 
 ?>
@@ -92,7 +104,7 @@ if ($msg == 'oversize') {
 
                             <tr>
                                 <th scope="row"><?=$no++?></th>
-                                <td align="center"><img src="../asset//image/Siswa/<?=$data['foto']?>" alt="siswa" class="rounded-circle" width="60px" height="60px"></td>
+                                <td align="center"><img src="../asset/image/Siswa/<?=$data['foto']?>" alt="siswa" class="rounded-circle" width="60px" height="60px"></td>
                                 <td align="center"><?=$data['nis']?></td>
                                 <td align="center"><?=$data['nama']?></td>
                                 <td align="center"><?=$data['kelas']?></td>
@@ -101,8 +113,8 @@ if ($msg == 'oversize') {
                                 <td align="center"><?=$data['guru']?></td>
                                 <td align="center"><?=$data['alamat']?></td>
                                 <td align="center">
-                                    <a href="#" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger"title="Hapus" ><i class="fa-solid fa-trash"></i></a>
+                                    <a href="edit-siswa.php?nis=<?=$data['nis']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="hapus-siswa.php?nis=<?=$data['nis']?>&foto=<?=$data['foto']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php
