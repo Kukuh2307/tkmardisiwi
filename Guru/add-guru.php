@@ -72,10 +72,10 @@ require_once("../template/sidebar.php");
                                 </div>
                                 <!-- No.HP -->
                                 <div class="mb-3 row">
-                                    <label for="NoHP" class="col-sm-3 col-form-label">No.HP</label>
+                                    <label for="nomorhp" class="col-sm-3 col-form-label">No.HP</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control border-0 border-bottom" id="NoHP" name="NoHP" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" required>
+                                        <input type="number" class="form-control border-0 border-bottom" id="nomorhp" name="nomorhp" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" required>
                                     </div>
                                 </div>
                                 

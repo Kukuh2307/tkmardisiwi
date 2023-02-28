@@ -40,6 +40,13 @@ if ($msg == 'sucess') {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
+// apabila berhasil mengedit
+if ($msg == 'sucess-edit') {
+    $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-circle-check"></i> Berhasil mengedit data Guru.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+}
+
     // apabila berhasil menghapus data siswa
     if ($msg == 'sucess-delete') {
         $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -12,7 +12,7 @@ if(isset($_POST['simpan'])){
     $nama = trim(htmlspecialchars($_POST['Nama']));
     $jabatan = trim(htmlspecialchars($_POST['Jabatan']));
     $gender = $_POST['Jenis_kelamin'];
-    $nohp = trim(htmlspecialchars($_POST['NoHP']));
+    $nohp = trim(htmlspecialchars($_POST['nomorhp']));
     $email = $_POST['Email'];
     $alamat = trim(htmlspecialchars($_POST['Alamat']));
     $foto = trim(htmlspecialchars($_FILES['image']['name']));
@@ -31,8 +31,8 @@ if(isset($_POST['simpan'])){
 } else if(isset($_POST['update'])){
     $nama = trim(htmlspecialchars($_POST['Nama']));
     $jabatan = trim(htmlspecialchars($_POST['Jabatan']));
-    $gender = $_POST['Jenis_kelamin'];
-    $nohp = trim(htmlspecialchars($_POST['NoHP']));
+    $gender = $_POST['jeniskelamin'];
+    $nohp = trim(htmlspecialchars($_POST['nomorhp']));
     $email = $_POST['Email'];
     $alamat = trim(htmlspecialchars($_POST['Alamat']));
     $foto = trim(htmlspecialchars($_POST['fotolama']));
@@ -53,7 +53,7 @@ if(isset($_POST['simpan'])){
                             nama='$nama',
                             jabatan='$jabatan',
                             jeniskelamin='$gender',
-                            nohp='$nohp',
+                            nomorhp='$nohp',
                             email='$email',
                             alamat='$alamat',
                             foto='$fotoGuru'

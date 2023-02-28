@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
     exit;
 }
 require_once("../config.php");
-$tittle = "Tambah Guru";
+$tittle = "Edit Guru";
 require_once("../template/header.php");
 require_once("../template/navbar.php");
 require_once("../template/sidebar.php");
@@ -23,25 +23,24 @@ $data = mysqli_fetch_array($dataGuru);
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= $main_url ?>" class="link-secondary">Home</a></li>
                 <li class="breadcrumb-item"><a href="<?= $main_url ?>/Guru/guru.php" class="link-secondary">Guru</a></li>
-                <li class="breadcrumb-item active">Tambah Guru</li>
+                <li class="breadcrumb-item active">Edit Guru</li>
             </ol>
             <form action="proses-add-guru.php" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-header">
-                        <span class="h5"><i class="fa-solid fa-square-plus"></i> Tambah Guru</span>
-                        <button type="submit" name="simpan" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
-                        <button type="reset" name="reset" class="btn btn-danger float-end me-1"><i class="fa-solid fa-xmark"></i> Reset</button>
+                        <span class="h5"><i class="fa-solid fa-square-plus"></i> Edit Guru</span>
+                        <button type="submit" name="update" class="btn btn-primary float-end"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                
+
                                 <!-- Nama -->
                                 <div class="mb-3 row">
                                     <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom text-secondary" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Guru" value="<?=$data['nama']?>" required>
+                                        <input type="text" class="form-control border-0 border-bottom text-secondary" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Guru" value="<?= $data['nama'] ?>" required>
                                     </div>
                                 </div>
                                 <!-- Jabatan -->
@@ -51,16 +50,16 @@ $data = mysqli_fetch_array($dataGuru);
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
                                         <select name="Jabatan" id="Jabatan" class="form-select border-0 border-bottom text-secondary" required>
                                             <?php
-                                            $jabatan = ['Kepala Sekolah','Guru Kelas A1','Guru Kelas A2','Guru PAUD','Guru Kelas B','Administrator'];
-                                            foreach($jabatan as $jbt){
-                                                if($data['jabatan'] == $jbt){
-                                                    ?>
-                                                    <option value="<?=$data['jabatan']?>" selected><?=$jbt?></option>
-                                                    <?php
-                                                } else{
-                                                    ?>
-                                                    <option value="<?=$data['jabatan']?>"><?=$jbt?></option>
-                                                    <?php
+                                            $jabatan = ['Kepala Sekolah', 'Guru Kelas A1', 'Guru Kelas A2', 'Guru PAUD', 'Guru Kelas B', 'Administrator'];
+                                            foreach ($jabatan as $jbt) {
+                                                if ($data['jabatan'] == $jbt) {
+                                            ?>
+                                                    <option value="<?= $jbt ?>" selected><?= $jbt ?></option>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <option value="<?= $jbt ?>"><?= $jbt ?></option>
+                                            <?php
                                                 }
                                             }
                                             ?>
@@ -70,21 +69,21 @@ $data = mysqli_fetch_array($dataGuru);
 
                                 <!-- Jenis Kelamin -->
                                 <div class="mb-3 row">
-                                    <label for="Jenis_Kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                    <label for="jeniskelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
-                                        <select name="Jenis_Kelamin" id="Jenis_Kelamin" class="form-select border-0 border-bottom text-secondary" required>
+                                        <select name="jeniskelamin" id="jeniskelamin" class="form-select border-0 border-bottom text-secondary" required>
                                             <?php
-                                            $gender = ['P','L'];
-                                            foreach($gender as $gdr){
-                                                if($data['jeniskelamin'] == $gdr){
-                                                    ?>
-                                                    <option value="<?=$gdr?>"selected><?=$gdr?></option>
-                                                    <?php
-                                                } else{
-                                                    ?>
-                                                    <option value="<?=$gdr?>"><?=$gdr?></option>
-                                                    <?php
+                                            $gender = ['P', 'L'];
+                                            foreach ($gender as $gdr) {
+                                                if ($data['jeniskelamin'] == $gdr) {
+                                            ?>
+                                                    <option value="<?= $gdr ?>" selected><?= $gdr ?></option>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <option value="<?= $gdr ?>"><?= $gdr ?></option>
+                                            <?php
                                                 }
                                             }
                                             ?>
@@ -93,19 +92,19 @@ $data = mysqli_fetch_array($dataGuru);
                                 </div>
                                 <!-- No.HP -->
                                 <div class="mb-3 row">
-                                    <label for="NoHP" class="col-sm-3 col-form-label">No.HP</label>
+                                    <label for="nomorhp" class="col-sm-3 col-form-label">No.HP</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control border-0 border-bottom text-secondary" id="NoHP" name="NoHP" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" value="<?=$data['nomorhp']?>" required>
+                                        <input type="number" class="form-control border-0 border-bottom text-secondary" id="nomorhp" name="nomorhp" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" value="<?= $data['nomorhp'] ?>" required>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Email -->
                                 <div class="mb-3 row">
                                     <label for="Email" class="col-sm-3 col-form-label">Email</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control border-0 border-bottom text-secondary" id="Email" name="Email" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email" value="<?=$data['email']?>" required>
+                                        <input type="email" class="form-control border-0 border-bottom text-secondary" id="Email" name="Email" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email" value="<?= $data['email'] ?>" required>
                                     </div>
                                 </div>
                                 <!-- Alamat -->
@@ -113,12 +112,13 @@ $data = mysqli_fetch_array($dataGuru);
                                     <label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left: -3rem;">
-                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control text-secondary" placeholder="Domisili saat ini" required><?=$data['alamat']?></textarea>
+                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control text-secondary" placeholder="Domisili saat ini" required><?= $data['alamat'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-4 text-center px-5">
-                                <img src="../asset/image/Guru/<?=$data['foto']?>" alt="Profile" class="mb-2" width="40%">
+                                <input type="hidden" name="fotolama" value="<?= $data['foto'] ?>">
+                                <img src="../asset/image/Guru/<?= $data['foto'] ?>" alt="Profile" class="mb-2" width="40%">
                                 <input type="file" name="image" class="form-control form-control-sm">
                                 <small class="text-secondary">Pilih Foto dengan type PNG,JPG atau JPEG max 1 MB (98x98)</small>
                             </div>
