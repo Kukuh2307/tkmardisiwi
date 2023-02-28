@@ -20,7 +20,6 @@
                                 Ganti Password
                             </a>
                             <hr class="mb-0">
-                            
                             <div class="sb-sidenav-menu-heading">Data</div>
                             <a class="nav-link text-white hoverNav" href="<?=$main_url?>/siswa/siswa.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
@@ -38,7 +37,26 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user-graduate"></i></div>
                                 Ujian
                             </a>
+
+                            <!-- E-Raport -->
                             <hr class="mb-0">
+                            <div class="sb-sidenav-menu-heading">E-Raport</div>
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>/ERaport/Kelas-A1.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
+                                Kelas A1
+                            </a>
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
+                                Kelas A2
+                            </a>
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
+                                Kelas B
+                            </a>
+                            <a class="nav-link text-white hoverNav" href="<?=$main_url?>index.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
+                                Kelas PAUD
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer border">
