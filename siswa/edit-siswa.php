@@ -41,7 +41,7 @@ $data = mysqli_fetch_array($querySelect);
                                     <label for="NIS" class="col-sm-3 col-form-label">NIS</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" value="<?=$id ?>" readonly>
+                                        <input type="text" class="form-control border-0 border-bottom text-secondary" id="NIS" name="NIS" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan NIS Siswa" value="<?=$id ?>" readonly>
                                     </div>
                                 </div>
                                 <!-- Nama -->
@@ -49,7 +49,7 @@ $data = mysqli_fetch_array($querySelect);
                                     <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Siswa" value="<?=$data['nama']?>"required>
+                                        <input type="text" class="form-control border-0 border-bottom text-secondary" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Siswa" value="<?=$data['nama']?>"required>
                                     </div>
                                 </div>
                                 <!-- Kelas -->
@@ -80,7 +80,7 @@ $data = mysqli_fetch_array($querySelect);
                                     <label for="Tahun" class="col-sm-3 col-form-label">Tahun Masuk</label>
                                     <label for="<?=$tahunMsk?>" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control border-0 border-bottom" id="Tahun" name="Tahun" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Tahun Masuk Siswa" value="<?=$data['tahun_masuk']?>" required>
+                                        <input type="number" class="form-control border-0 border-bottom text-secondary" id="Tahun" name="Tahun" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Tahun Masuk Siswa" value="<?=$data['tahun_masuk']?>" required>
                                     </div>
                                 </div>
                                 <!-- Semester -->
@@ -134,7 +134,7 @@ $data = mysqli_fetch_array($querySelect);
                                     <label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left: -3rem;">
-                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control" placeholder="Domisili saat ini" required><?=$data['alamat']?></textarea>
+                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control text-secondary" placeholder="Domisili saat ini" required><?=$data['alamat']?></textarea>
                                     </div>
                                 </div>
                             </div>

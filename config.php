@@ -49,6 +49,12 @@ function uploadimg($url)
         // upload gambar
     move_uploaded_file($tmp, "../asset/image/Profile-Sekolah/" . $namaFileBaru);
     return $namaFileBaru;
+    } elseif ($url == "add-guru.php") {
+        // apabila url dari profile sekolah
+            $namaFileBaru = rand(0,50). '-Guru'.'.'.$fileFormat;
+            // upload gambar
+        move_uploaded_file($tmp, "../asset/image/Guru/" . $namaFileBaru);
+        return $namaFileBaru;
     } else {
         // generate nama file gambar
         $namaFileBaru = rand(10, 1000) . '-' . $namafile;
