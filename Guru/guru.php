@@ -36,9 +36,16 @@ if ($msg == 'notimage') {
 // apabila berhasil menambahkan user
 if ($msg == 'sucess') {
     $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <i class="fa-solid fa-circle-check"></i> Berhasil menambahkan Siswa.
+    <i class="fa-solid fa-circle-check"></i> Berhasil menambahkan Guru.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
+
+    // apabila berhasil menghapus data siswa
+    if ($msg == 'sucess-delete') {
+        $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i> Data guru berhasil di hapus!!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
 
 // apabila file gambar terlalu besar
 if ($msg == 'oversize') {
@@ -95,8 +102,8 @@ if ($msg == 'oversize') {
                                     <td scope="row" align="center"><?=$data['email']?></td>
                                     <td scope="row" align="center"><?=$data['alamat']?></td>
                                     <td align="center">
-                                    <a href="#" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger"title="Hapus" ><i class="fa-solid fa-trash"></i></a>
+                                    <a href="edit-guru.php?nama=<?=$data['nama']?>" class="btn btn-sm btn-warning" title="update"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="hapus-guru.php?nama=<?=$data['nama']?>&foto=<?=$data['foto']?>" class="btn btn-sm btn-danger"title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                                 </tr>
                                 <?php

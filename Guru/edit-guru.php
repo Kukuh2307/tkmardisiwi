@@ -10,7 +10,10 @@ require_once("../template/header.php");
 require_once("../template/navbar.php");
 require_once("../template/sidebar.php");
 
-
+// ambil data guru di database 
+$nama = $_GET['nama'];
+$dataGuru = mysqli_query($koneksi, "SELECT * FROM guru WHERE nama='$nama'");
+$data = mysqli_fetch_array($dataGuru);
 
 ?>
 <div id="layoutSidenav_content">
@@ -38,7 +41,7 @@ require_once("../template/sidebar.php");
                                     <label for="Nama" class="col-sm-3 col-form-label">Nama</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Guru" required>
+                                        <input type="text" class="form-control border-0 border-bottom text-secondary" id="Nama" name="Nama" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Nama Guru" value="<?=$data['nama']?>" required>
                                     </div>
                                 </div>
                                 <!-- Jabatan -->
@@ -47,13 +50,20 @@ require_once("../template/sidebar.php");
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
                                         <select name="Jabatan" id="Jabatan" class="form-select border-0 border-bottom text-secondary" required>
-                                            <option value="" selected>--Pilih Jabatan--</option>
-                                            <option value="Kepala Sekolah">Kepala Sekolah</option>
-                                            <option value="Guru Kelas A1">Guru Kelas A1</option>
-                                            <option value="Guru Kelas A2">Guru Kelas A2</option>
-                                            <option value="Guru Kelas B">Guru Kelas B</option>
-                                            <option value="Guru Kelas PAUD">Guru Kelas PAUD</option>
-                                            <option value="Administrator">Administrator</option>
+                                            <?php
+                                            $jabatan = ['Kepala Sekolah','Guru Kelas A1','Guru Kelas A2','Guru PAUD','Guru Kelas B','Administrator'];
+                                            foreach($jabatan as $jbt){
+                                                if($data['jabatan'] == $jbt){
+                                                    ?>
+                                                    <option value="<?=$data['jabatan']?>" selected><?=$jbt?></option>
+                                                    <?php
+                                                } else{
+                                                    ?>
+                                                    <option value="<?=$data['jabatan']?>"><?=$jbt?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -64,9 +74,20 @@ require_once("../template/sidebar.php");
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
                                         <select name="Jenis_Kelamin" id="Jenis_Kelamin" class="form-select border-0 border-bottom text-secondary" required>
-                                            <option value="" selected>--Pilih Jenis Kelamin--</option>
-                                            <option value="P">P</option>
-                                            <option value="L">L</option>
+                                            <?php
+                                            $gender = ['P','L'];
+                                            foreach($gender as $gdr){
+                                                if($data['jeniskelamin'] == $gdr){
+                                                    ?>
+                                                    <option value="<?=$gdr?>"selected><?=$gdr?></option>
+                                                    <?php
+                                                } else{
+                                                    ?>
+                                                    <option value="<?=$gdr?>"><?=$gdr?></option>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -75,7 +96,7 @@ require_once("../template/sidebar.php");
                                     <label for="NoHP" class="col-sm-3 col-form-label">No.HP</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control border-0 border-bottom" id="NoHP" name="NoHP" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" required>
+                                        <input type="number" class="form-control border-0 border-bottom text-secondary" id="NoHP" name="NoHP" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan No.HP" value="<?=$data['nomorhp']?>" required>
                                     </div>
                                 </div>
                                 
@@ -84,7 +105,7 @@ require_once("../template/sidebar.php");
                                     <label for="Email" class="col-sm-3 col-form-label">Email</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control border-0 border-bottom" id="Email" name="Email" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email" required>
+                                        <input type="email" class="form-control border-0 border-bottom text-secondary" id="Email" name="Email" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan Email" value="<?=$data['email']?>" required>
                                     </div>
                                 </div>
                                 <!-- Alamat -->
@@ -92,7 +113,7 @@ require_once("../template/sidebar.php");
                                     <label for="Alamat" class="col-sm-3 col-form-label">Alamat</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left: -3rem;">
-                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control" placeholder="Domisili saat ini" required></textarea>
+                                        <textarea name="Alamat" id="Alamat" cols="30" rows="3" class="form-control text-secondary" placeholder="Domisili saat ini" required><?=$data['alamat']?></textarea>
                                     </div>
                                 </div>
                             </div>
